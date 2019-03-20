@@ -7,6 +7,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <nav>
+        <ul>
+          <li><%= link_to("Home", "/") %></li>
+          <li><%= link_to("Calendar", "/events/") %></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
+    </nav>
+
   </head>
 
   <body>
