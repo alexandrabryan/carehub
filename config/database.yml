@@ -91,5 +91,3 @@ production:
  database: carehub_production
  username: carehub
  password: <%= ENV['CAREHUB_DATABASE_PASSWORD'] %>
-
-
