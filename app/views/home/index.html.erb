@@ -1,9 +1,14 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
 
+<div class="main-content">
+  <div class="index-message">
+    <h1>One calendar, one list, one update<br>Coordinate care in one place</h1>
+    <p>The Care Hub: Connecting with loved ones made easy</p>
+    
+    <h2> Calendar Test </h2>
+    <%= week_calendar number_of_weeks: 1 do |date| %>
+      <%= date %>
+    <% end %>
+    
+  </div>
+</div>
 
-
-<h2> Calendar Test </h2>
-<%= week_calendar number_of_weeks: 1 do |date| %>
-  <%= date %>
-<% end %>
