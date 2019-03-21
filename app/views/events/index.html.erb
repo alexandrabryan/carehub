@@ -5,11 +5,11 @@
 <h2> Day View </h2>
 
 <%= calendar number_of_days: 1, events: @events do |date, events| %>
-  <%= date %>
+  <%= date.day %>
 
   <% events.each do |event| %>
     <div>
-      <%= event.name %>
+      <%= link_to event.name, event %>
     </div>
   <% end %>
 <% end %>
@@ -17,11 +17,11 @@
 <h2> Week View </h2>
 
 <%= week_calendar events: @events do |date, events| %>
-  <%= date %>
+  <%= date.day %>
 
   <% events.each do |event| %>
     <div>
-      <%= event.name %>
+      <%= link_to event.name, event %>
     </div>
   <% end %>
 <% end %>
@@ -29,11 +29,11 @@
 <h2> Month View </h2>
 
 <%= month_calendar events: @events do |date, events| %>
-  <%= date %>
+  <%= date.day %>
 
   <% events.each do |event| %>
     <div>
-      <%= event.name %>
+      <%= link_to event.name, event %>
     </div>
   <% end %>
 <% end %>
