@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.where(email: "thecarehubapp@gmail.com").first_or_create.update_attributes(nome: "Care Hub App Team",
+User.where(email: "thecarehubapp@gmail.com").first_or_create.update_attributes(name: "Care Hub App Team",
     email: "thecarehubapp@gmail.com",
     password:              "devcamp2",
     password_confirmation: "devcamp2")
