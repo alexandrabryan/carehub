@@ -5,8 +5,14 @@
     <p>The Care Hub: Connecting with loved ones made easy</p>
 
     <h2> Calendar Test </h2>
-    <%= week_calendar number_of_weeks: 1 do |date| %>
+    <%= week_calendar events: @events do |date, events| %>
       <%= date %>
+
+      <% events.each do |event| %>
+        <div>
+          <%= event.name %>
+        </div>
+      <% end %>
     <% end %>
 
     <h2>To Do List Coming Soon!</h2>
