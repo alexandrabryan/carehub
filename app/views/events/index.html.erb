@@ -2,6 +2,18 @@
 
 <h1>Events</h1>
 
+<h2> Day View </h2>
+
+<%= calendar number_of_days: 1, events: @events do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.name %>
+    </div>
+  <% end %>
+<% end %>
+
 <h2> Week View </h2>
 
 <%= week_calendar events: @events do |date, events| %>

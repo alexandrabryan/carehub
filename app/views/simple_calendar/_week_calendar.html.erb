@@ -2,7 +2,8 @@
   <div class="calendar-heading">
     <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
     <% if calendar.number_of_weeks == 1 %>
-      <span class="calendar-title">Week <%= calendar.week_number %></span>
+    <!-- <span class="calendar-title">Week <%= calendar.week_number  %></span> -->
+    <span class="calendar-title">Week of <%= t('date.month_names')[start_date.beginning_of_week.month] %> <%= start_date.beginning_of_week.day %>, <%= start_date.beginning_of_week.year %></span>
     <%else%>
         <span class="calendar-title">Week <%= calendar.week_number %> <%= calendar.end_week %></span>
     <%end%>
