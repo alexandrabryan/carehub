@@ -3,11 +3,11 @@
 <h1>Events</h1>
 
 <%= link_to("Day", "/events/day") %>
-<%= link_to("Week", "/events/week") %>
+<%= link_to("Month", events_path) %>
 
-<h2> Month View </h2>
+<h2> Week View </h2>
 
-<%= month_calendar events: @events do |date, events| %>
+<%= week_calendar events: @events do |date, events| %>
   <%= date.day %>
 
   <% events.each do |event| %>
@@ -16,6 +16,8 @@
     </div>
   <% end %>
 <% end %>
+
+
 
 <table>
   <thead>
