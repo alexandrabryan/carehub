@@ -10,7 +10,7 @@
 
       <% events.each do |event| %>
         <div>
-          <%= event.name %>
+          <%= link_to event.name, event %>
         </div>
       <% end %>
     <% end %>

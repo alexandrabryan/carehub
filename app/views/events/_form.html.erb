@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
+    <%= form.datetime_select :start_time,  :ampm => true, :discard_year => true, :order => [:month, :day, :year] %>
   </div>
 
   <div class="field">
     <%= form.label :end_time %>
-    <%= form.datetime_select :end_time %>
+    <%= form.datetime_select :end_time,  :ampm => true, :discard_year => true, :order => [:month, :day, :year] %>
   </div>
 
 <!-- UPDATE THIS WHEN EVENT LOGIC IS FIGURED OUT -->
