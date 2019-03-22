@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, "Event Name" %>
     <%= form.text_field :name %>
   </div>
 
@@ -24,6 +24,17 @@
   <div class="field">
     <%= form.label :end_time %>
     <%= form.datetime_select :end_time %>
+  </div>
+
+<!-- UPDATE THIS WHEN EVENT LOGIC IS FIGURED OUT -->
+  <div class="field">
+    <%= form.label :user_id, "Created By" %>
+    <% if !current_user %>
+      <%= form.label :user_id, "Nobody" %>
+    <% else %>
+      <%= form.label :user_id, current_user.name %>
+      <%= form.hidden_field :user_id, :value => current_user.id %>
+    <% end %>
   </div>
 
   <div class="actions">
