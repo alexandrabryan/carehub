@@ -6,7 +6,7 @@
 
     <h2> Calendar Test </h2>
     <%= week_calendar events: @events do |date, events| %>
-      <%= date %>
+      <%= date.day %>
 
       <% events.each do |event| %>
         <div>
@@ -16,6 +16,29 @@
     <% end %>
 
     <h2>To Do List Coming Soon!</h2>
+
+    <h2>Updates</h2>
+    <div class="main posts-index">
+      <div class="container">
+        <% @posts.each do |post| %>
+          <div class="posts-index-item">
+            <div class="post-left">
+
+
+            </div>
+            <div class="post-right">
+              <div class="post-user-name">
+
+                <%= "User id: #{post.user_id}" %>
+              </div>
+
+              <%= post.content %>
+              <p> ------------------------ </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
 
   </div>
