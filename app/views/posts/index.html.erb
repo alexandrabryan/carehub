@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<div class="main posts-index">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <div class="post-left">
+
+
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+
+            <%= "User id: #{post.user_id}" %>
+          </div>
+
+          <%= post.content %>
+          <p> ------------------------ </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<p> --------Table Below --------- </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.content %></td>
+        <td><%= post.user_id %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
