@@ -67,3 +67,5 @@ gem "devise"
 
 gem 'bootstrap'
 gem 'jquery-rails'
+
+gem "local_time"

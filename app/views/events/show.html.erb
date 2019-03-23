@@ -7,12 +7,12 @@
 
 <p>
   <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <%= @event.start_time.strftime("%A, %B %e, %Y at %l:%M %P") %>
 </p>
 
 <p>
   <strong>End time:</strong>
-  <%= @event.end_time %>
+  <%= @event.end_time.strftime("%A, %B %e, %Y at %l:%M %P") %>
 </p>
 
 <p>
@@ -25,4 +25,5 @@
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', events_path %>

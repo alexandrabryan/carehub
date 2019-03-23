@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h1>Calendar</h1>
 
-<%= link_to("Day", "/events/day") %>
-<%= link_to("Week", "/events/week") %>
+<%= link_to("Day View", "/events/day") %>
+<%= link_to("Week View", "/events/week") %>
+<br>
+<%= link_to 'Create New Event', new_event_path %>
 
 <h2> Month View </h2>
 
@@ -12,11 +14,12 @@
 
   <% events.each do |event| %>
     <div>
-      <%= link_to event.name, event %>
+      <%= link_to "#{event.start_time.strftime("%l %P")} - #{event.name}", event %>
     </div>
   <% end %>
 <% end %>
 
+<!-----
 <table>
   <thead>
     <tr>
@@ -40,7 +43,5 @@
     <% end %>
   </tbody>
 </table>
-
+---->
 <br>
-
-<%= link_to 'New Event', new_event_path %>
