@@ -15,6 +15,12 @@
     <% end %>
 
     <h2>To Do List:</h2>
+      <ul>
+        <% @items.each do |item| %>
+        <li><%= item.item%></li>
+        <%end%>
+      </ul>
+<%=render"items/form" %>
 
     <h2>Updates/Announcements</h2>
     <div class="posts-index">
