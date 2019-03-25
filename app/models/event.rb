@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   validates :name, {presence: true, length: {maximum: 100}}
+  validates :user_id, {presence: true}
 
   validate :end_date_after_start_date
   validate :start_date_after_now

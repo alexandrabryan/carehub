@@ -2,7 +2,7 @@
 
 <h1>Posts</h1>
 
-<div class="main posts-index">
+<div class="main ">
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
@@ -14,10 +14,10 @@
           <div class="post-user-name">
 
             <%= "User id: #{post.user_id}" %>
+            <%= "User name: #{post.user.name}" %>
           </div>
 
           <%= post.content %>
-          <p> ------------------------ </p>
         </div>
       </div>
     <% end %>

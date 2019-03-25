@@ -31,6 +31,7 @@
     <%= form.label :user_id, "Created By" %>
     <% if !current_user %>
       <%= form.label :user_id, "Nobody" %>
+      <%= form.hidden_field :user_id, :value => 1 %>
     <% else %>
       <%= form.label :user_id, current_user.name %>
       <%= form.hidden_field :user_id, :value => current_user.id %>
