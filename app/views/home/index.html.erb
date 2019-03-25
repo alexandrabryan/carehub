@@ -15,7 +15,13 @@
       <% end %>
     <% end %>
 
-    <h2>To Do List Coming Soon!</h2>
+    <h2>To Do List:</h2>
+      <ul>
+        <% @items.each do |item| %>
+        <li><%= item.item%></li>
+        <%end%>
+      </ul>
+<%=render"items/form" %>
 
     <h2>Update Feed</h2>
     <%= link_to 'New Post', new_post_path %>
