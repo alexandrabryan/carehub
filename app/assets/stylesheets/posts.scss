@@ -9,6 +9,7 @@
   overflow: hidden;
   box-shadow: 0 2px 6px #c1ced7;
   width: 80%;
+
 }
 
 .post-left img {
@@ -19,8 +20,18 @@
   object-fit: cover;
 }
 
+.post-user-name  {
+  float: left;
+  width: 90%;
+  padding-left: 25px;
+  text-align: left;
+  font-style: italic;
+  font-size: 1em;
+
+}
 .post-user-name a {
   font-weight: 600;
+
 }
 
 .post-user-name a:hover {
@@ -37,6 +48,7 @@
   width: 90%;
   padding-left: 25px;
   text-align: left;
+  font-size: 1.2em;
 }
 
 /* posts/show ================================ */

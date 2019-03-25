@@ -3,7 +3,10 @@ class HomeController < ApplicationController
 
   def index
     @events = Event.all
-    @posts = Post.all
+
+    #Get only the 10 most recent updates from DB
+    #@posts = Post.all
+    @posts = Post.all.order('created_at DESC').take(10)
   end
 
 end
