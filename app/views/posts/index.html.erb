@@ -1,24 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1>Update Feed</h1>
 
+<%= link_to 'New Post', new_post_path %>
 <div class="main ">
+
   <div class="container">
+
     <% @posts.each do |post| %>
       <div class="posts-index-item">
-        <div class="post-left">
-
-
-        </div>
         <div class="post-right">
+
+
+          <%= link_to(post.content, post) %>
+          </div>
           <div class="post-user-name">
 
-            <%= "User id: #{post.user_id}" %>
-            
+            <%= "Posted by User id: #{post.user_id} @"%>
+            <%=  local_time_ago(post.created_at) %>
+
           </div>
 
-          <%= post.content %>
-        </div>
       </div>
     <% end %>
   </div>
@@ -48,5 +50,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>

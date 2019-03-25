@@ -4,7 +4,8 @@
     <h1>One calendar, one list, one update<br>Coordinate care in one place</h1>
     <p>The Care Hub: Connecting with loved ones made easy</p>
 
-    <h2> Calendar Test </h2>
+    <h2> This Week </h2>
+    <%= link_to '+ Add Event', new_event_path %>
     <%= week_calendar events: @events do |date, events| %>
       <%= date.day %>
       <% events.each do |event| %>
@@ -22,25 +23,27 @@
       </ul>
 <%=render"items/form" %>
 
-    <h2>Updates/Announcements</h2>
+    <h2>Update Feed</h2>
+    <%= link_to 'New Post', new_post_path %>
     <div class="posts-index">
       <div class="container">
         <% @posts.each do |post| %>
           <div class="posts-index-item">
-            <div class="post-left">
-
-
-            </div>
             <div class="post-right">
+
+
+              <%= link_to(post.content, post) %>
+              </div>
               <div class="post-user-name">
 
-                <%= "User id: #{post.user_id}" %>
+                <%= "Posted by User id: #{post.user_id} @"%>
+                <%=  local_time_ago(post.created_at) %>
+
               </div>
 
-              <%= post.content %>
-            </div>
           </div>
         <% end %>
+        <i>* Showing last 10 updates</i>
       </div>
     </div>
 
