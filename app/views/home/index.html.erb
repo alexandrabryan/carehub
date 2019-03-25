@@ -1,5 +1,5 @@
 
-<div class="main-content">
+<div class="main">
   <div class="index-message">
     <h1>One calendar, one list, one update<br>Coordinate care in one place</h1>
     <p>The Care Hub: Connecting with loved ones made easy</p>
@@ -7,7 +7,6 @@
     <h2> Calendar Test </h2>
     <%= week_calendar events: @events do |date, events| %>
       <%= date.day %>
-
       <% events.each do |event| %>
         <div>
           <%= link_to event.name, event %>
@@ -17,8 +16,8 @@
 
     <h2>To Do List Coming Soon!</h2>
 
-    <h2>Updates</h2>
-    <div class="main posts-index">
+    <h2>Updates/Announcements</h2>
+    <div class="posts-index">
       <div class="container">
         <% @posts.each do |post| %>
           <div class="posts-index-item">
@@ -33,7 +32,6 @@
               </div>
 
               <%= post.content %>
-              <p> ------------------------ </p>
             </div>
           </div>
         <% end %>
