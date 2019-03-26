@@ -25,17 +25,11 @@
 
   <!-- UPDATE THIS WHEN EVENT LOGIC IS FIGURED OUT -->
 
-
-
     <div class="field">
       <%= form.label :user_id, "Posted by:" %>
-      <% if !current_user %>
-        <%= form.label :user_id, "Nobody" %>
-        <%= form.hidden_field :user_id, :value => 1 %>
-      <% else %>
-        <%= form.label :user_id, current_user.name %>
-        <%= form.hidden_field :user_id, :value => current_user.id %>
-      <% end %>
+      <%= form.label :user_id, current_user.name %>
+      <%= form.hidden_field :user_id, :value => current_user.id %>
+      
       <% if post.created_at %>
         @
         <%=  local_time_ago(post.created_at) %>

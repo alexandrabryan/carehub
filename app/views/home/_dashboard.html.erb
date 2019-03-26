@@ -30,7 +30,7 @@
           </div>
           <div class="post-user-name">
 
-            <%= "Posted by User id: #{post.user_id} @"%>
+            <%= "Posted by: #{post.user.name} @"%>
             <%=  local_time_ago(post.created_at) %>
 
           </div>

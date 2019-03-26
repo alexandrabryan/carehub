@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= form.label :name, "Event Name" %>
     <%= form.text_field :name %>
@@ -26,16 +27,20 @@
     <%= form.datetime_select :end_time,  :ampm => true, :discard_year => true, :order => [:month, :day, :year] %>
   </div>
 
-<!-- UPDATE THIS WHEN EVENT LOGIC IS FIGURED OUT -->
+<!-- Saves user_id when editing/creating new -->
   <div class="field">
-    <%= form.label :user_id, "Created By" %>
-    <% if !current_user %>
-      <%= form.label :user_id, "Nobody" %>
-      <%= form.hidden_field :user_id, :value => 1 %>
+    <%= form.label :user_id, "Created by:" %>
+    <% if @event.user_id %>
+      <%= User.find_by(id: event.user_id).name %>
+      <%= form.hidden_field :user_id, :value => event.user_id %>
+      <% if editing %>
+        <!--- Can add code in here to store the id of the user editing the event, but need to add field to db for this --->
+      <% end %>
     <% else %>
       <%= form.label :user_id, current_user.name %>
       <%= form.hidden_field :user_id, :value => current_user.id %>
     <% end %>
+
   </div>
 
   <div class="actions">
