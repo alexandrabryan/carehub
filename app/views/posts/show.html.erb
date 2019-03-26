@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= "Posted by User id: #{@post.user_id} @"%>
+  <strong>Posted by:</strong>
+  <%= " #{@post.user.name} @"%>
   <%=  local_time_ago(@post.created_at) %>
 </p>
 
