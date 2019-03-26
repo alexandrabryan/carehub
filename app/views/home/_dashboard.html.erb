@@ -1,0 +1,42 @@
+<h2> This Week </h2>
+<%= link_to '+ Add Event', new_event_path %>
+<%= week_calendar events: @events do |date, events| %>
+  <%= date.day %>
+  <% events.each do |event| %>
+    <div>
+      <%= link_to event.name, event %>
+    </div>
+  <% end %>
+<% end %>
+
+<h2>To Do List:</h2>
+  <ul>
+    <% @items.each do |item| %>
+    <li><%= item.item%></li>
+    <%end%>
+  </ul>
+    <%=render"items/form" %>
+
+<h2>Update Feed</h2>
+<%= link_to 'New Post', new_post_path %>
+<div class="posts-index">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <div class="post-right">
+
+
+          <%= link_to(post.content, post) %>
+          </div>
+          <div class="post-user-name">
+
+            <%= "Posted by User id: #{post.user_id} @"%>
+            <%=  local_time_ago(post.created_at) %>
+
+          </div>
+
+      </div>
+    <% end %>
+    <i>* Showing last 10 updates</i>
+  </div>
+</div>
