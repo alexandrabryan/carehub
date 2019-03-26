@@ -24,34 +24,10 @@ ActiveRecord::Schema.define(version: 2019_03_25_200200) do
     t.integer "user_id"
   end
 
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_groups_on_user_id"
-  end
-
-  create_table "invites", force: :cascade do |t|
-    t.bigint "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_invites_on_group_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "item"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "memberships", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_memberships_on_group_id"
-    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -70,16 +46,8 @@ ActiveRecord::Schema.define(version: 2019_03_25_200200) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "groups", "users"
-  add_foreign_key "invites", "groups"
-  add_foreign_key "memberships", "groups"
-  add_foreign_key "memberships", "users"
 end

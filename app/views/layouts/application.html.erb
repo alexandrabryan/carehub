@@ -9,72 +9,59 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">The Care Hub</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
+      <a class="navbar-brand" href="/">The Care Hub</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <% if current_user %>
-      <li class="nav-item">
-
-        <a class="nav-link" href="/events">Calendar</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/posts">Updates</a>
-      </li>
-      <% end %>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <% if current_user %>
-
-      <a class="btn btn-outline-primary" href="<%= destroy_user_session_path %>" role="button">Logout</a>
-      <div style="padding-left: 10px;">
-        <a class="btn btn-outline-success" href="<%= edit_user_registration_path %>" role="button">Edit Profile </a>
-      </div>
-
-
-      <% else %>
-      <a class="btn btn-outline-primary" href="/login" role="button">
-      Login
-      </a>
-      <div style="padding-left: 10px;">
-        <a class="btn btn-outline-success" href="/signup" role="button">
-        Sign Up
-        </a>
-      </div>
-      <% end %>
-    </form>
-    </div>
-    </nav>
-
-
-    <nav>
-        <ul>
-          <li><%= link_to("Home", "/") %></li>
-          <li><%= link_to("Sign Up", "/signup") %></li>
-          <li>
-          <% if current_user %>
-            <%= link_to 'Edit Profile', edit_user_registration_path %>
-            <%= link_to 'Log Out', destroy_user_session_path %>
-
-          <% else %>
-            <%= link_to("Log In", "/login") %>
-          <% end %>
-
-
-
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li><%= link_to("Calendar", "/events/") %></li>
-          <li><%= link_to("Updates", "/posts") %></li>
-          <li><%= link_to "To Do List", new_item_path %></li>
-          <li><a href="#">Link</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <!-- If user is logged in display links for calendar, updates and to-do -->
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link" href="/events">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/posts">Updates</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to("To Do List", new_item_path, class: "nav-link") %>
+            </li>
+          <% end %>
         </ul>
-    </nav>
+        <form class="form-inline my-2 my-lg-0">
+          <!-- If user is logged in display logut and profile buttons -->
+          <% if user_signed_in? %>
+            <a class="btn btn-outline-primary" href="<%= destroy_user_session_path %>" role="button">Logout</a>
+            <div style="padding-left: 10px;">
+              <a class="btn btn-outline-success" href="<%= edit_user_registration_path %>" role="button">Edit Profile </a>
+            </div>
+
+          <!-- Else, display login and sign up buttons -->
+          <% else %>
+            <a class="btn btn-outline-primary" href="/login" role="button">Login</a>
+            <div style="padding-left: 10px;">
+              <a class="btn btn-outline-success" href="/signup" role="button">Sign Up</a>
+            </div>
+          <% end %>
+        </form>
+    </div>
+
+  </nav>
+
+    <!-- Display logged in user email -->
+    <% if user_signed_in? %>
+      <p class="float-right">
+        Logged in as <strong><%= current_user.email %></strong>.
+      </p>
+    <% end %>
+
 
   </head>
 
