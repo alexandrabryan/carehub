@@ -58,7 +58,12 @@
     <!-- Display logged in user email -->
     <% if user_signed_in? %>
       <p class="float-right">
-        Logged in as <strong><%= current_user.email %></strong>.
+        Logged in as <strong><%= current_user.email %></strong>. <br>
+        <% if current_user.group_id %>
+          You are in <strong>Group
+            <%= current_user.group_id %>
+          </strong>
+        <% end %>
       </p>
     <% end %>
 
