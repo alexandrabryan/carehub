@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resources :groups
   resources :items
   resources :posts
-    devise_for :users
+    devise_for :users,
+               :controllers => {:registrations => "registrations"}
 
   get "/events/day" => "events#day"
   get "/events/week" => "events#week"
