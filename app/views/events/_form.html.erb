@@ -33,9 +33,7 @@
     <% if @event.user_id %>
       <%= User.find_by(id: event.user_id).name %>
       <%= form.hidden_field :user_id, :value => event.user_id %>
-      <% if editing %>
-        <!--- Can add code in here to store the id of the user editing the event, but need to add field to db for this --->
-      <% end %>
+      
     <% else %>
       <%= form.label :user_id, current_user.name %>
       <%= form.hidden_field :user_id, :value => current_user.id %>
