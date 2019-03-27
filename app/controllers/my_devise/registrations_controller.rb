@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class MyDevise::RegistrationsController < Devise::RegistrationsController
 
   def create
 
