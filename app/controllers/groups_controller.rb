@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
       if @group.save
         #@membership = Membership.create({user_id: current_user.id, group_id: @group.id})
         #@membership.save
-        @group.users << User.find(current_user.id)
+        #@group.users << User.find(current_user.id)
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
