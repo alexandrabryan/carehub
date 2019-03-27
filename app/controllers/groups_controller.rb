@@ -28,6 +28,9 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
+        #@membership = Membership.create({user_id: current_user.id, group_id: @group.id})
+        #@membership.save
+        @group.users << User.find(current_user.id)
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
@@ -42,6 +45,8 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
+        #@membership = Membership.create({user_id: current_user.id, group_id: @group.id})
+        #@membership.save
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
