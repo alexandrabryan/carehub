@@ -37,6 +37,12 @@
 
       </div>
     <% end %>
-    <i>* Showing last 10 updates</i>
+
+    <% if @posts.count > 9 %>
+    <i>* Showing only last 10 updates</i>
+    <% end %>
+
+    <br>
+    
   </div>
 </div>

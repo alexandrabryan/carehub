@@ -33,11 +33,13 @@
     <% if @event.user_id %>
       <%= User.find_by(id: event.user_id).name %>
       <%= form.hidden_field :user_id, :value => event.user_id %>
-      
+
     <% else %>
       <%= form.label :user_id, current_user.name %>
       <%= form.hidden_field :user_id, :value => current_user.id %>
     <% end %>
+
+    <%= form.hidden_field :group_id, :value => current_user.group_id %>
 
   </div>
 

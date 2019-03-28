@@ -5,15 +5,21 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    # Get all events for the current group
+    #@events = Event.all
+    @events = Event.where(group_id: current_user.group_id)
   end
 
   def day
-    @events = Event.all
+    # Get all events for the current group
+    #@events = Event.all
+    @events = Event.where(group_id: current_user.group_id)
   end
 
   def week
-    @events = Event.all
+    # Get all events for the current group
+    #@events = Event.all
+    @events = Event.where(group_id: current_user.group_id)
   end
 
   # GET /events/1
@@ -78,6 +84,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :start_time, :end_time, :user_id)
+      params.require(:event).permit(:name, :start_time, :end_time, :user_id, :group_id)
     end
 end

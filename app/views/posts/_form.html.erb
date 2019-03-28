@@ -29,12 +29,14 @@
       <%= form.label :user_id, "Posted by:" %>
       <%= form.label :user_id, current_user.name %>
       <%= form.hidden_field :user_id, :value => current_user.id %>
-      
+
       <% if post.created_at %>
         @
         <%=  local_time_ago(post.created_at) %>
       <% end %>
     </div>
+
+    <%= form.hidden_field :group_id, :value => current_user.group_id %>
 
   <div class="actions">
     <%= form.submit %>
