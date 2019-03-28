@@ -16,6 +16,14 @@
     <%= form.text_field :item %>
   </div>
 
+  <div class="field">
+
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+    <%= form.hidden_field :group_id, :value => current_user.group_id %>
+  </div>
+
+
+
   <div class="actions">
     <%= form.submit %>
   </div>

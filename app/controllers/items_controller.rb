@@ -5,7 +5,9 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    # Get all items for the current group
+    #@items = Item.all
+    @items = Item.where(group_id: current_user.group_id)
   end
 
   # GET /items/1
@@ -70,6 +72,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:item)
+      params.require(:item).permit(:item, :user_id, :group_id)
     end
 end
