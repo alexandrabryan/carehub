@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   validates :group_id, {presence: true}
 
   validate :end_date_after_start_date
-  validate :start_date_after_now
+  #validate :start_date_after_now
 
   # Define the "user" instance method
   def user
