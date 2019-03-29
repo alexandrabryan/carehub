@@ -7,7 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
+  <body>
+    <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/">The Care Hub</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,9 +55,8 @@
           <% end %>
         </form>
     </div>
-
   </nav>
-
+</div>
     <!-- Display logged in user email -->
     <% if user_signed_in? %>
       <p class="float-right">
@@ -67,10 +69,6 @@
       </p>
     <% end %>
 
-
-  </head>
-
-  <body>
 
     <div class="container">
       <h1>Welcome to CareHub! </h1>
