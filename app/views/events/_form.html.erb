@@ -18,13 +18,21 @@
   </div>
 
   <div class="field">
+
+    <!-- Original date input control
+     form.datetime_select :start_time,  :ampm => true, :discard_year => true, :order => [:month, :day, :year]
+    -->
+
+
+
+  <div class="field">
     <%= form.label :start_time %>
-    <%= form.datetime_select :start_time,  :ampm => true, :discard_year => true, :order => [:month, :day, :year] %>
+    <%= form.datetime_select :start_time,  default: Time.now+1.minute, :ampm => true, :discard_year => true, :order => [:month, :day, :year] %>
   </div>
 
   <div class="field">
     <%= form.label :end_time %>
-    <%= form.datetime_select :end_time,  :ampm => true, :discard_year => true, :order => [:month, :day, :year] %>
+    <%= form.datetime_select :end_time,  default: Time.now+1.hour, :ampm => true, :discard_year => true, :order => [:month, :day, :year] %>
   </div>
 
 <!-- Saves user_id when editing/creating new -->
