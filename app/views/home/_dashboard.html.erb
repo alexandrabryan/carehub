@@ -1,5 +1,5 @@
-<h2> This Week </h2>
-<%= link_to '+ Add Event', new_event_path %>
+<h2 style="display:inline; vertical-align: middle;"> This Week </h2>
+<%= link_to("+ Add Event", new_event_path, class: "btn btn-outline-secondary btn-lg", style: "vertical-align: middle;") %>
 <%= week_calendar events: @events do |date, events| %>
   <%= date.day %>
   <% events.each do |event| %>
@@ -17,8 +17,9 @@
   </ul>
     <%=render"items/form" %>
 
-<h2>Update Feed</h2>
-<%= link_to 'New Post', new_post_path %>
+<h2 style="display:inline; vertical-align: middle;">Update Feed</h2>
+<%= link_to("New Post", new_post_path, class: "btn btn-outline-secondary btn-lg", style: "vertical-align: middle;") %>
+<br>
 <div class="posts-index">
   <div class="container">
     <% @posts.each do |post| %>
@@ -42,7 +43,12 @@
     <i>* Showing only last 10 updates</i>
     <% end %>
 
+
+
     <br>
-    
+
   </div>
 </div>
+
+
+<br>
