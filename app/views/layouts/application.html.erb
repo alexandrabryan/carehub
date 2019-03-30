@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Carehub</title>
+    <title>CareHub</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,7 +12,7 @@
   <body>
     <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">The Care Hub</a>
+      <a class="navbar-brand" href="/">CareHub</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -56,8 +56,7 @@
         </form>
     </div>
   </nav>
-</div>
-    <!-- Display logged in user email -->
+
     <% if user_signed_in? %>
       <p class="float-right">
         Logged in as <strong><%= current_user.email %></strong>. <br>
@@ -68,7 +67,7 @@
         <% end %>
       </p>
     <% end %>
-
+</div>
 
     <div class="container">
       <h1>Welcome to CareHub! </h1>
