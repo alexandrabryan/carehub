@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Calendar</h1>
+<p><em>A painless way to organize, record significant events and share key dates</em></p>
+
 
 <%= link_to("Day View", "/events/day") %>
 <%= link_to("Week View", "/events/week") %>
@@ -14,7 +16,7 @@
 
   <% events.each do |event| %>
     <div>
-      <%= link_to "#{event.start_time.strftime("%l:%M %P")} - #{event.name}", event %>
+      <%= link_to "#{event.start_time.strftime("%l:%M %P")}: #{event.name}", event %>
     </div>
   <% end %>
 <% end %>

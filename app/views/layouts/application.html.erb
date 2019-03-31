@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/">CareHub</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +70,19 @@
 </div>
 
     <div class="container">
-      <h1>Welcome to CareHub! </h1>
+      <% if !user_signed_in? %>
+
+        <h1>Welcome to CareHub! </h1>
+        <p><em>CareHub: Connecting with loved ones made easy</em></p>
+
+      <% else %>
+
+        <!-- Different heading for logged in user?? -->
+
+      <% end %>
+
+
+
     </div>
   <!-- <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p> -->
