@@ -11,18 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field" style="display:inline; vertical-align: middle;">
+  <div class="field">
     <%= form.label :item %>
     <%= form.text_field :item %>
-  </div>
-
-  <div class="actions" style="display:inline; vertical-align: middle;">
-    <%= form.submit value: "Add Item", class:  "btn btn-outline-secondary btn-lg" %>
   </div>
 
   <div class="field">
     <%= form.hidden_field :user_id, :value => current_user.id %>
     <%= form.hidden_field :group_id, :value => current_user.group_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
   </div>
 
 <% end %>

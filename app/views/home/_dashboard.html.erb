@@ -1,54 +1,111 @@
-<h2 style="display:inline; vertical-align: middle;"> This Week </h2>
-<%= link_to("+ Add Event", new_event_path, class: "btn btn-outline-secondary btn-lg", style: "vertical-align: middle;") %>
-<%= week_calendar events: @events do |date, events| %>
-  <%= date.day %>
-  <% events.each do |event| %>
-    <div>
-      <%= link_to event.name, event %>
-    </div>
-  <% end %>
-<% end %>
-
-<h2>To Do List:</h2>
-  <ul>
-    <% @items.each do |item| %>
-    <li><%= item.item%></li>
-    <%end%>
-  </ul>
-    <%=render"items/form" %>
-
-<h2 style="display:inline; vertical-align: middle;">Update Feed</h2>
-<%= link_to("New Post", new_post_path, class: "btn btn-outline-secondary btn-lg", style: "vertical-align: middle;") %>
-<br>
-<div class="posts-index">
-  <div class="container">
-    <% @posts.each do |post| %>
-      <div class="posts-index-item">
-        <div class="post-right">
 
 
-          <%= link_to(post.content, post) %>
-          </div>
-          <div class="post-user-name">
+<div class="container-fluid">
 
-            <%= "Posted by: #{post.user.name} @"%>
-            <%=  local_time_ago(post.created_at) %>
 
-          </div>
 
+
+  <h2 style="display:inline; vertical-align: middle;"> This Week </h2>
+  <%= link_to("+ Add Event", new_event_path, class: "btn btn-outline-secondary btn-lg", style: "vertical-align: middle;") %>
+  <%= week_calendar events: @events do |date, events| %>
+    <%= date.day %>
+    <% events.each do |event| %>
+      <div>
+
+        <%= link_to "#{event.start_time.strftime("%l:%M %P")} - #{event.name}", event %>
       </div>
     <% end %>
+  <% end %>
 
-    <% if @posts.count > 9 %>
-    <i>* Showing only last 10 updates</i>
-    <% end %>
-
-
-
-    <br>
+  <div class="row">
 
   </div>
+
+
+  <div class="row">
+    <div class="col-sm-8">
+
+      <h2 style="display:inline; vertical-align: middle;">Update Feed</h2>
+      <%= link_to("New Post", new_post_path, class: "btn btn-outline-secondary btn-lg", style: "vertical-align: middle;") %>
+      <br>
+      <div class="posts-index">
+        <div class="container">
+          <% @posts.each do |post| %>
+            <div class="posts-index-item">
+              <div class="post-right">
+
+
+                <%= link_to(post.content, post) %>
+                </div>
+                <div class="post-user-name">
+
+                  <%= "Posted by: #{post.user.name} @"%>
+                  <%=  local_time_ago(post.created_at) %>
+
+                </div>
+
+            </div>
+          <% end %>
+
+          <% if @posts.count > 9 %>
+          <i>* Showing only last 10 updates</i>
+          <% end %>
+
+
+
+          <br>
+
+
+        </div>
+      </div>
+
+
+      <br>
+
+
+
+    </div>
+
+    <div class="col-sm-4">
+      <h2>To Do List</h2>
+        <ul>
+          <% @items.each do |item| %>
+          <li><%= link_to item.item, item %></li>
+
+          <%end%>
+        </ul>
+
+          <%= form_with(model: @item, local: true) do |form| %>
+            <% if @item.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+                <ul>
+                <% item.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="field" style="display:inline; vertical-align: middle;">
+              <%= form.label :item %>
+              <%= form.text_field :item %>
+            </div>
+
+            <div class="actions" style="display:inline; vertical-align: middle;">
+              <%= form.submit value: "Add Item", class:  "btn btn-outline-secondary btn-lg" %>
+            </div>
+
+            <div class="field">
+              <%= form.hidden_field :user_id, :value => current_user.id %>
+              <%= form.hidden_field :group_id, :value => current_user.group_id %>
+            </div>
+
+          <% end %>
+
+
+
+    </div>
+  </div>
 </div>
-
-
-<br>
