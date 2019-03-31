@@ -1,8 +1,7 @@
 
 <div class="main">
   <div class="index-message">
-    <h1>One calendar, one list, one update<br>Coordinate care in one place</h1>
-    <p>The Care Hub: Connecting with loved ones made easy</p>
+
 
     <!-- Display dashboard items if user is logged in -->
     <% if user_signed_in? %>
@@ -10,9 +9,21 @@
 
     <!-- Else, display landing page -->
     <% else %>
+    <h2>One calendar, one list, one update<br>Coordinate care in one place</h2>
+    <p>Calendar: <em>A painless way to organize, record significant events and share key dates</em></p>
+    <p>To Do List: <em>Create tasks for which family and friends can volunteer to assist </em></p>
+    <p>Update Feed: <em>Share how things are going, update requests and receive support!</em></p>
 
-      <h3>Share, Connect and Rally Support:</h3>
-      <p>Caregivers can connect with  family and friends at once and share news and updates with everyone.</p>
+    <h3>Share, Connect and Rally Support:</h3>
+    <p>Caregivers can connect with  family and friends at once and share news and updates with everyone.</p>
+
+
+    <div class="row justify-content-center">
+    <%= image_tag("Landing.JPG") %>
+    <br>
+
+    </div>
+
 
     <% end %>
 

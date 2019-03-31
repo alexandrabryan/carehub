@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
+<h1>To Do List</h1>
+<p><em>Create tasks for which family and friends can volunteer to assist </em></p>
 
 <table>
   <thead>
@@ -16,7 +17,7 @@
         <td><%= item.item %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
