@@ -7,6 +7,12 @@
   <%= @item.item %>
 </p>
 
+<p>
+  <strong>Created by:</strong>
+    <%= User.find_by(id: @item.user_id).name %>
+</p>
+
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <td><%= link_to 'Delete', @item, method: :delete, data: { confirm: 'Are you sure?' } %></td> |
 <%= link_to 'Back to Dashboard', "/" %>
