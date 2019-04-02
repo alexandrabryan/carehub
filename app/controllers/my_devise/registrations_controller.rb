@@ -2,7 +2,12 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 
   def create
 
-    if !params.has_key?(:group_id)
+    #puts "IN USER CREATE METHOD - NEXT LINE IS PARAM"
+    #puts params[:user][:group_id]
+
+    #if !params.has_key?(:user)(:group_id)
+    #if !params.dig(:user, :group_id)
+    if !params[:user][:group_id].presence
 
       group = Group.create!
       #@group.create
